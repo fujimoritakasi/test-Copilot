@@ -2,17 +2,17 @@
 
 ## 1. リポジトリ概要
 
-### プロジェクトの目的と機能
+### 1.1 プロジェクトの目的と機能
 このプロジェクトは「あみだくじアプリ」というFlutterアプリケーションです。あみだくじ（Ghost Leg）アルゴリズムを使用して、複数のプレイヤーに対して平日（月〜金）の当番を公平に割り当てるアプリケーションです。
 
-### 主要な機能
+### 1.2 主要な機能
 - **プレイヤー管理**: プレイヤーの追加・削除機能
 - **休み希望設定**: 各プレイヤーが当番を避けたい曜日を設定可能
 - **あみだくじ実行**: 休み希望を考慮した当番の自動割り当て
 - **結果表示**: 割り当て結果をわかりやすく表示
 - **多言語対応**: 日本語UIでの操作
 
-### 対象ユーザー・ビジネス要件
+### 1.3 対象ユーザー・ビジネス要件
 - **対象ユーザー**: 職場やチームで当番制を導入している組織
 - **ビジネス要件**: 
   - 公平な当番割り当て
@@ -22,7 +22,7 @@
 
 ## 2. フォルダ構成
 
-### ディレクトリ構造の詳細
+### 2.1 ディレクトリ構造の詳細
 
 ```
 flutter_sample/
@@ -72,28 +72,28 @@ flutter_sample/
 └── analysis_options.yaml        # Dartアナライザー設定
 ```
 
-### 各フォルダの役割と責務
+### 2.2 各フォルダの役割と責務
 
-#### **lib/bloc/**: 状態管理レイヤー
+#### 2.2.1 **lib/bloc/**: 状態管理レイヤー
 - **bloc/**: 複雑な非同期処理を含む状態管理（あみだくじ実行）
 - **cubit/**: シンプルな状態管理（プレイヤー管理）
 - **observer/**: 開発時のデバッグとロギング
 
-#### **lib/model/**: データレイヤー
+#### 2.2.2 **lib/model/**: データレイヤー
 - ビジネスドメインオブジェクトの定義
 - データクラスとビジネスロジック
 - 不変オブジェクトの実装
 
-#### **lib/service/**: サービスレイヤー
+#### 2.2.3 **lib/service/**: サービスレイヤー
 - ビジネスロジックの実装
 - 外部APIやデータソースとの連携
 - 非同期処理の管理
 
-#### **assets/**: 静的リソース
+#### 2.2.4 **assets/**: 静的リソース
 - アプリで使用する静的ファイル
 - 画像、フォント、JSONデータなど
 
-### ファイル命名規則
+### 2.3 ファイル命名規則
 - **Dartファイル**: `snake_case.dart`
 - **クラス**: `PascalCase`
 - **ウィジェット**: `ComponentNameWidget`形式
@@ -101,37 +101,37 @@ flutter_sample/
 - **Cubit**: `FeatureCubit`形式
 - **Service**: `FeatureService`形式
 
-### プラットフォーム固有のディレクトリ
+### 2.4 プラットフォーム固有のディレクトリ
 
-#### **android/**: Android固有設定
+#### 2.4.1 **android/**: Android固有設定
 - Gradleビルド設定
 - AndroidManifest.xml
 - Kotlinサポート（MainActivity.kt）
 
-#### **ios/**: iOS固有設定
+#### 2.4.2 **ios/**: iOS固有設定
 - Xcodeプロジェクト設定
 - Info.plist設定
 - Swiftサポート（AppDelegate.swift）
 
-#### **web/**: Web固有設定
+#### 2.4.3 **web/**: Web固有設定
 - HTML/CSS/JavaScript設定
 - PWA対応
 - Web特有のアセット
 
-#### **windows/**: Windows固有設定
+#### 2.4.4 **windows/**: Windows固有設定
 - CMake設定
 - C++ランナー
 - Windows API統合
 
 ## 3. 技術スタック
 
-### 使用フレームワーク・ライブラリ
+### 3.1 使用フレームワーク・ライブラリ
 
-#### **コアフレームワーク**
+#### 3.1.1 **コアフレームワーク**
 - **Flutter**: クロスプラットフォームUIフレームワーク
 - **Dart**: プログラミング言語（SDK: ">=2.16.1 <3.0.0"）
 
-#### **状態管理**
+#### 3.1.2 **状態管理**
 - **flutter_bloc: ^8.0.1**: BLoC pattern実装
   - `Bloc`: 複雑な状態管理とイベント処理
   - `Cubit`: シンプルな状態管理
@@ -139,17 +139,17 @@ flutter_sample/
   - `BlocBuilder`: UI状態連携
   - `MultiBlocProvider`: 複数プロバイダー管理
 
-#### **UI・デザイン**
+#### 3.1.3 **UI・デザイン**
 - **Material Design**: Googleのデザインシステム
 - **cupertino_icons: ^1.0.2**: iOSスタイルアイコン
 
-#### **開発・テスト**
+#### 3.1.4 **開発・テスト**
 - **flutter_lints: ^1.0.0**: Dartコード品質チェック
 - **flutter_test**: テストフレームワーク
 
-### 依存関係の詳細
+### 3.2 依存関係の詳細
 
-#### **プロダクション依存関係**
+#### 3.2.1 **プロダクション依存関係**
 ```yaml
 dependencies:
   flutter:
@@ -158,7 +158,7 @@ dependencies:
   flutter_bloc: ^8.0.1
 ```
 
-#### **開発依存関係**
+#### 3.2.2 **開発依存関係**
 ```yaml
 dev_dependencies:
   flutter_test:
@@ -166,20 +166,20 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 ```
 
-### 開発環境・ビルドツール
+### 3.3 開発環境・ビルドツール
 
-#### **開発環境**
+#### 3.3.1 **開発環境**
 - **Flutter SDK**: 2.16.1以上
 - **Dart SDK**: Flutter SDKに含まれる
 - **分析ツール**: `analysis_options.yaml`でカスタマイズ
 
-#### **ビルドツール**
+#### 3.3.2 **ビルドツール**
 - **Android**: Gradle
 - **iOS**: Xcode
 - **Web**: dart2js
 - **Windows**: CMake + MSVC
 
-#### **開発コマンド**
+#### 3.3.3 **開発コマンド**
 ```bash
 flutter pub get          # 依存関係取得
 flutter analyze          # 静的解析
@@ -188,9 +188,9 @@ flutter run             # デバッグ実行
 flutter build [platform] # リリースビルド
 ```
 
-### デプロイメント方法
+### 3.4 デプロイメント方法
 
-#### **各プラットフォーム向けビルド**
+#### 3.4.1 **各プラットフォーム向けビルド**
 ```bash
 # Android
 flutter build apk --release
@@ -208,15 +208,15 @@ flutter build windows --release
 
 ## 4. コーディング規約
 
-### 命名規則
+### 4.1 命名規則
 
-#### **ファイル・ディレクトリ命名**
+#### 4.1.1 **ファイル・ディレクトリ命名**
 - **Dartファイル**: `snake_case.dart`
   - 例: `amida_result_bloc.dart`, `players_cubit.dart`
 - **ディレクトリ**: `snake_case`
   - 例: `bloc/`, `model/`, `service/`
 
-#### **クラス・型命名**
+#### 4.1.2 **クラス・型命名**
 - **クラス**: `PascalCase`
   - 例: `AmidaResultBloc`, `PlayersCubit`, `AmidakujiResultAreaWidget`
 - **抽象クラス**: `PascalCase`
@@ -224,7 +224,7 @@ flutter build windows --release
 - **Enum**: `PascalCase`
   - 例: `Day` (Monday, Tuesday, ...)
 
-#### **変数・メソッド命名**
+#### 4.1.3 **変数・メソッド命名**
 - **変数**: `camelCase`
   - 例: `amidaResult`, `targetDay`, `updateddHolidays`
 - **メソッド**: `camelCase`
@@ -232,19 +232,19 @@ flutter build windows --release
 - **プライベートメンバー**: `_camelCase`
   - 例: `_loadPlayersFromJson()`, `_executeAmida()`
 
-#### **定数命名**
+#### 4.1.4 **定数命名**
 - **定数**: `camelCase`または`UPPER_SNAKE_CASE`
   - 例: `limitLoopCounterValue`, `days`
 
-### クラス・コンポーネント命名パターン
+### 4.2 クラス・コンポーネント命名パターン
 
-#### **UIコンポーネント**
+#### 4.2.1 **UIコンポーネント**
 - **Widget**: `ComponentNameWidget`
   - 例: `ExecuteAmidakujiButtonWidget`, `DayButtonWidget`, `AmidakujiResultAreaWidget`
 - **Stateless Widget**: `StatelessWidget`を継承
 - **Stateful Widget**: `StatefulWidget`を継承
 
-#### **状態管理**
+#### 4.2.2 **状態管理**
 - **BLoC**: `FeatureBloc`
   - 例: `AmidaResultBloc`
 - **Cubit**: `FeatureCubit`
@@ -256,15 +256,15 @@ flutter build windows --release
   - 例: `AmidaEvent`（抽象クラス）
   - 具象クラス: `ExecuteAmidaEvent`
 
-#### **ビジネスロジック**
+#### 4.2.3 **ビジネスロジック**
 - **Service**: `FeatureService`
   - 例: `AmidaResultService`
 - **Model**: `PascalCase`
   - 例: `Player`, `Amidakuji`, `AmidaResult`
 
-### アーキテクチャパターンの適用方法
+### 4.3 アーキテクチャパターンの適用方法
 
-#### **BLoC Pattern**
+#### 4.3.1 **BLoC Pattern**
 ```dart
 // BLoC定義
 class AmidaResultBloc extends Bloc<AmidaEvent, AmidaResultState> {
@@ -294,7 +294,7 @@ BlocBuilder<AmidaResultBloc, AmidaResultState>(
 )
 ```
 
-#### **Cubit Pattern（シンプルな状態管理）**
+#### 4.3.2 **Cubit Pattern（シンプルな状態管理）**
 ```dart
 class PlayersCubit extends Cubit<Players> {
   PlayersCubit() : super(Players([]));
@@ -304,27 +304,27 @@ class PlayersCubit extends Cubit<Players> {
 }
 ```
 
-### 状態管理の方針
+### 4.4 状態管理の方針
 
-#### **BLoC vs Cubit使い分け**
+#### 4.4.1 **BLoC vs Cubit使い分け**
 - **BLoC**: 複雑な非同期処理、多数のイベント処理
   - 例: あみだくじ実行（非同期処理、エラーハンドリング）
 - **Cubit**: シンプルな状態変化
   - 例: プレイヤー管理（CRUD操作）
 
-#### **状態設計原則**
+#### 4.4.2 **状態設計原則**
 - **不変性**: 状態オブジェクトは不変
 - **コピー更新**: 状態変更時は新しいオブジェクトを生成
 - **状態分割**: 機能ごとに状態を分割
 
-### UIコンポーネントの設計原則
+### 4.5 UIコンポーネントの設計原則
 
-#### **Widget分割原則**
+#### 4.5.1 **Widget分割原則**
 - **単一責任**: 一つのWidgetは一つの責任
 - **再利用性**: 汎用的なコンポーネントは再利用可能に設計
 - **コンポジション**: 複雑なUIは小さなWidgetの組み合わせ
 
-#### **Widget構成パターン**
+#### 4.5.2 **Widget構成パターン**
 ```dart
 // メインWidget
 class MyHomePage extends StatefulWidget {
@@ -350,9 +350,9 @@ class MyHomePage extends StatefulWidget {
 }
 ```
 
-### エラーハンドリングの方針
+### 4.6 エラーハンドリングの方針
 
-#### **例外処理パターン**
+#### 4.6.1 **例外処理パターン**
 ```dart
 // Service層での例外処理
 Future<AmidaResult> executeAmidakuji(Players players) {
@@ -377,7 +377,7 @@ on<ExecuteAmidaEvent>((event, emit) async {
 });
 ```
 
-#### **UI層でのエラー表示**
+#### 4.6.2 **UI層でのエラー表示**
 ```dart
 if (state is AmidaResultErrorState) {
   return const Text(
@@ -391,25 +391,25 @@ if (state is AmidaResultErrorState) {
 }
 ```
 
-### 日本語対応とローカライゼーション
+### 4.7 日本語対応とローカライゼーション
 
-#### **日本語文字列の扱い**
+#### 4.7.1 **日本語文字列の扱い**
 - **UI文字列**: 直接日本語を使用
 - **メソッド名**: 必要に応じて日本語を含む
   - 例: `damenahiString()` （「ダメな日」の意味）
 - **コメント**: 日本語でのコメント記述OK
 
-#### **国際化対応準備**
+#### 4.7.2 **国際化対応準備**
 - 将来的な多言語対応を考慮した設計
 - 文字列の外部化を検討
 
-### Git・プロジェクト管理規約
+### 4.8 Git・プロジェクト管理規約
 
-#### **コミットメッセージ**
+#### 4.8.1 **コミットメッセージ**
 - 日本語または英語
 - 変更内容を明確に記述
 
-#### **ブランチ戦略**
+#### 4.8.2 **ブランチ戦略**
 - feature/機能名
 - bugfix/問題名
 - main/masterブランチでの開発
